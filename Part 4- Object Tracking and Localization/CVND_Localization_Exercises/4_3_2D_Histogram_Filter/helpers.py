@@ -32,15 +32,15 @@ def blur(grid, blurring):
             [adjacent_prob, center_prob,  adjacent_prob],
             [corner_prob,  adjacent_prob,  corner_prob]
         ]
-    new = [[0.0 for i in range(width)] for j in range(height)]
+    new = [[0.0 for _ in range(width)] for _ in range(height)]
     for i in range(height):
         for j in range(width):
             grid_val = grid[i][j]
             for dx in range(-1,2):
+                new_j = (j + dx) % width
                 for dy in range(-1,2):
                     mult = window[dx+1][dy+1]
                     new_i = (i + dy) % height
-                    new_j = (j + dx) % width
                     new[new_i][new_j] += mult * grid_val
     return normalize(new)
 
@@ -65,13 +65,12 @@ def is_robot_localized(beliefs, true_pos):
                 best_pos = (y,x)
             elif belief > second_best:
                 second_best = belief
-    if second_best <= 0.00001 or best_belief / second_best > 2.0:
-        # robot thinks it knows where it is
-        localized =  best_pos == true_pos
-        return localized, best_pos
-    else:
+    if second_best > 0.00001 and best_belief / second_best <= 2.0:
         # No strong single best belief
         return None, best_pos
+    # robot thinks it knows where it is
+    localized =  best_pos == true_pos
+    return localized, best_pos
 
 def close_enough(g1, g2):
     if len(g1) != len(g2):

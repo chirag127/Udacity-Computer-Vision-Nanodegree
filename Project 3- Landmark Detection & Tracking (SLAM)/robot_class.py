@@ -49,13 +49,12 @@ class robot:
         
         x = self.x + dx + self.rand() * self.motion_noise
         y = self.y + dy + self.rand() * self.motion_noise
-        
+
         if x < 0.0 or x > self.world_size or y < 0.0 or y > self.world_size:
             return False
-        else:
-            self.x = x
-            self.y = y
-            return True
+        self.x = x
+        self.y = y
+        return True
 
 
     # --------
@@ -104,10 +103,14 @@ class robot:
     # make random landmarks located in the world
     #
     def make_landmarks(self, num_landmarks):
-        self.landmarks = []
-        for i in range(num_landmarks):
-            self.landmarks.append([round(random.random() * self.world_size),
-                                   round(random.random() * self.world_size)])
+        self.landmarks = [
+            [
+                round(random.random() * self.world_size),
+                round(random.random() * self.world_size),
+            ]
+            for _ in range(num_landmarks)
+        ]
+
         self.num_landmarks = num_landmarks
 
 

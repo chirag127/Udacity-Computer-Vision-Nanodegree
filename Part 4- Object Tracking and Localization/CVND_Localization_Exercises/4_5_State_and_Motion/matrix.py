@@ -22,7 +22,7 @@ class Matrix(object):
         multiplies them according to the rules of linear algebra, 
         and returns a new matrix.'''
 
-        if(self.cols == other.rows):
+        if (self.cols == other.rows):
             # Then the dimensions match for multiplication!
 
             # Create a new matrix of zeroes of the appropriate size (self.rows x other.cols)
@@ -45,7 +45,7 @@ class Matrix(object):
 
         else:
             print('Invalid matrix dimensions!')
-            print('A_cols = ' + str(self.cols) + ', and B_rows = ' + str(other.rows))
+            print(f'A_cols = {str(self.cols)}, and B_rows = {str(other.rows)}')
             # return []
         
         
@@ -59,11 +59,11 @@ class Matrix(object):
         for row in self.grid:
             s += '['
             for item in row:
-                s += str(item) +' '
+                s += f'{str(item)} '
             s += ']\n'
-            
+
         s += ']'
-        
+
         return s
 
 

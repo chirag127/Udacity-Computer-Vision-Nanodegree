@@ -18,10 +18,7 @@ class Simulation(object):
 		self.incorrect_sense_probability = self.p_miss / (p_hit + self.p_miss)
 		self.colors = self.get_colors()
 		self.num_colors = len(self.colors)
-		if not start_pos:
-			self.true_pose = (self.height/2, self.width/2)
-		else:
-			self.true_pose = start_pos
+		self.true_pose = start_pos or (self.height/2, self.width/2)
 		self.prev_pose = self.true_pose
 		self.prepare_visualizer()
 
@@ -99,7 +96,7 @@ class Simulation(object):
 		return dy,dx
 
 	def run(self, num_steps=1):
-		for i in range(num_steps):
+		for _ in range(num_steps):
 			self.sense()
 			dy, dx = self.random_move()
 			self.move(dy,dx)
