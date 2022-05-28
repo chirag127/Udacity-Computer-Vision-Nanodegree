@@ -16,7 +16,7 @@ def load_dataset(image_dir):
     # Populate this empty image list
     im_list = []
     image_types = ["day", "night"]
-    
+
     # Iterate through each color folder
     for im_type in image_types:
         
@@ -26,12 +26,12 @@ def load_dataset(image_dir):
             
             # Read in the image
             im = mpimg.imread(file)
-            
+
             # Check if the image exists/if it's been correctly read-in
-            if not im is None:
+            if im is not None:
                 # Append the image, and it's type (red, green, yellow) to the image list
                 im_list.append((im, im_type))
-    
+
     return im_list
 
 
@@ -48,10 +48,7 @@ def load_dataset(image_dir):
 # 600 height x 1100 width image size (px x px)
 def standardize_input(image):
     
-    # Resize image and pre-process so that all "standard" images are the same size
-    standard_im = cv2.resize(image, (1100, 600))
-    
-    return standard_im
+    return cv2.resize(image, (1100, 600))
 
 
 # Examples:
@@ -59,12 +56,9 @@ def standardize_input(image):
 # encode("night") should return: 0
 def encode(label):
     
-    numerical_val = 0
-    if(label == 'day'):
-        numerical_val = 1
     # else it is night and can stay 0
-    
-    return numerical_val
+
+    return 1 if (label == 'day') else 0
 
 # using both functions above, standardize the input images and output labels
 def standardize(image_list):

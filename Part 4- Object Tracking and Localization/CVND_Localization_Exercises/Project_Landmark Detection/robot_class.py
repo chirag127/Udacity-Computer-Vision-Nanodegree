@@ -49,13 +49,12 @@ class robot:
         
         x = self.x + dx + self.rand() * self.motion_noise
         y = self.y + dy + self.rand() * self.motion_noise
-        
+
         if x < 0.0 or x > self.world_size or y < 0.0 or y > self.world_size:
             return False
-        else:
-            self.x = x
-            self.y = y
-            return True
+        self.x = x
+        self.y = y
+        return True
 
 
     # --------
@@ -77,10 +76,8 @@ class robot:
             One item in the returned list should be in the form: [landmark_index, dx, dy].
             '''
            
-        measurements = None
-        
         ## TODO: iterate through all of the landmarks in a world
-        
+
         ## TODO: For each landmark
         ## 1. compute dx and dy, the distances between the robot and the landmark
         ## 2. account for measurement noise by *adding* a noise component to dx and dy
@@ -89,9 +86,9 @@ class robot:
         ## 3. If either of the distances, dx or dy, fall outside of the internal var, measurement_range
         ##    then we cannot record them; if they do fall in the range, then add them to the measurements list
         ##    as list.append([index, dx, dy]), this format is important for data creation done later
-        
+
         ## TODO: return the final, complete list of measurements
-        return measurements
+        return None
 
 
     # --------
@@ -99,10 +96,14 @@ class robot:
     # make random landmarks located in the world
     #
     def make_landmarks(self, num_landmarks):
-        self.landmarks = []
-        for i in range(num_landmarks):
-            self.landmarks.append([round(random.random() * self.world_size),
-                                   round(random.random() * self.world_size)])
+        self.landmarks = [
+            [
+                round(random.random() * self.world_size),
+                round(random.random() * self.world_size),
+            ]
+            for _ in range(num_landmarks)
+        ]
+
         self.num_landmarks = num_landmarks
 
 

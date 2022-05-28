@@ -33,14 +33,13 @@ class DecoderRNN(nn.Module):
         embeddings = torch.cat((features.unsqueeze(1), embeddings), 1)
         #packed = pack_padded_sequence(embeddings, lengths, batch_first=True) 
         hiddens, _ = self.lstm(embeddings)
-        outputs = self.linear(hiddens)
-        return outputs
+        return self.linear(hiddens)
 
     def sample(self, inputs, states=None, max_len=20):
         " accepts pre-processed image tensor (inputs) and returns predicted sentence (list of tensor ids of length max_len) "
         sampled_ids = []
         #inputs = inputs.unsqueeze(1)
-        for i in range(20):                                    # maximum sampling length
+        for _ in range(20):
             hiddens, states = self.lstm(inputs, states)        # (batch_size, 1, hidden_size), 
             outputs = self.linear(hiddens.squeeze(1))
             #print(outputs)# (batch_size, vocab_size)
