@@ -18,15 +18,15 @@ class Car(object):
     # Called when you write car.Car(_, _, _)
     def __init__(self, position, velocity, world):
         """Initializes Car with some position, velocity, and a world to traverse."""
-        
+
         # Initialize the state
         # Position is a list [y, x] and so is velocity [vy, vx]
         self.state = [position, velocity]
         self.world = world # world is a 2D list of values that range from 0-1
-        
+
         # Set the default color
         self.color = 'r'
-        
+
         # Initalize the path
         self.path = []
         self.path.append(position)
@@ -39,10 +39,10 @@ class Car(object):
             It assumes a circular world and a default dt = 1 (though dt can be any 
             non-negative integer).
             """
-        
+
         height = len(self.world)
         width = len(self.world[0])
-        
+
         position = self.state[0]
         velocity = self.state[1]
 
@@ -51,10 +51,10 @@ class Car(object):
             (position[0] + velocity[0]*dt) % height, # default dt = 1
             (position[1] + velocity[1]*dt) % width
         ]
-        
+
         # Update the state
         self.state = [predicted_position, velocity]
-        
+
         # Every time the robot moves, add the new position to the path
         self.path.append(predicted_position)
         
