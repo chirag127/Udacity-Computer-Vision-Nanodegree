@@ -4,3 +4,4 @@ pandas==0.22.0
 numpy==1.12.1
 pillow==9.0.1
 scipy==1.0.0
+setuptools>=65.5.1 # not directly required, pinned by Snyk to avoid a vulnerability
