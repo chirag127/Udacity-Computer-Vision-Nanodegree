@@ -54,17 +54,17 @@ class Normalize(object):
 
     def __call__(self, sample):
         image, key_pts = sample['image'], sample['keypoints']
-        
+
         image_copy = np.copy(image)
         key_pts_copy = np.copy(key_pts)
 
         # convert image to grayscale
         image_copy = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
-        
+
         # scale color range from [0, 255] to [0, 1]
         image_copy=  image_copy/255.0
-            
-        
+
+
         # scale keypoints to be centered around 0 with a range of [-1, 1]
         # mean = 100, sqrt = 50, so, pts should be (pts - 100)/50
         key_pts_copy = (key_pts_copy - 100)/50.0
@@ -101,7 +101,7 @@ class Rescale(object):
         new_h, new_w = int(new_h), int(new_w)
 
         img = cv2.resize(image, (new_w, new_h))
-        
+
         # scale the pts, too
         key_pts = key_pts * [new_w / w, new_h / h]
 
