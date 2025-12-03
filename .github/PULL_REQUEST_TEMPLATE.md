@@ -1,69 +1,69 @@
-# Pull Request: Architectural Review and Integration
+# 🚀 Pull Request: Architectural Review & Validation
 
-**Repository:** `CVND-Udacity-Computer-Vision-Nanodegree-Archive`
+**Welcome, Contributor.**
 
-This PR template enforces the **Apex Technical Authority** standards for quality and maintainability before merging any changes into the main branch.
-
----
-
-## 1. Overview & Intent
-
-**Brief Summary:**
-*What does this pull request achieve? (Be concise, focus on the 'Why')*
-
-**Affected Components/Files:**
-*List the primary files or modules impacted.*
+This repository adheres to the **Apex Technical Authority** standard. Before merging, please ensure this Pull Request (PR) addresses the following criteria. Submissions that violate these standards require mandatory rejection and re-submission.
 
 ---
 
-## 2. Architectural Compliance Check (Mandatory)
+## 🎯 1. Core Purpose & Verification
 
-By submitting this PR, I confirm the following architectural principles have been upheld:
+**(Select one and delete the rest)**
 
-| Principle | Status (Y/N/NA) | Notes |
-| :--- | :---: | :--- |
-| **SOLID** adherence in new logic | | |
-| **DRY** (Don't Repeat Yourself) enforced | | |
-| **YAGNI** (You Ain't Gonna Need It) respected | | |
-| **Future-Proofing:** Code is ready for 2026 standards (e.g., leveraging `uv` for Python dependencies, or modern TypeScript patterns) | | |
-| **Idempotency** maintained for all data modifications | | |
+- [ ] **Feature Implementation:** Introduces a new capability aligned with the repository's defined scope (e.g., new project module, curriculum update).
+- [ ] **Bug Fix/Correction:** Resolves an identified issue (Link to Issue: #XXXX).
+- [ ] **Refactoring/Optimization:** Improves existing code structure, performance, or documentation without changing external behavior.
+- [ ] **Documentation Update:** Primarily targets README, AGENTS.md, or contributing guidelines.
 
----
+### Project Context Alignment
 
-## 3. Technical Verification Checklist
+This is an **Archive Repository** for the Udacity Computer Vision Nanodegree. Ensure changes respect the integrity of educational source material.
 
-*Since this is an archived project focused on legacy educational material (Jupyter/PyTorch), verification focuses on preserving integrity and ensuring any refactoring meets modern standards.* 
+--- 
 
-### Data Integrity & Notebooks
+## ✅ 2. APEX STANDARD CHECKLIST
 
-- [ ] All notebook cells execute successfully from start to finish (Local Test Run).
-- [ ] All PyTorch/TensorFlow imports are updated to the latest compatible versions for Python 3.10+.
-- [ ] Hardcoded paths or environment variables (if any) have been abstracted or documented.
-- [ ] Data loading logic (if present) correctly handles archive structure.
+All mandatory checks derived from the **Standard 11** must be satisfied. If automated CI/CD fails, this PR cannot be merged.
 
-### Linting & Formatting (Ruff Enforcement)
+### Code Quality & Architecture (Python/Jupyter Focus)
 
-- [ ] Local linting passed without critical errors using the configured Ruff profile (`ruff check .`).
-- [ ] Code formatting passed (`ruff format --check .`).
+*   [ ] **DRY/SOLID Compliance:** Logic duplication is eliminated. Where applicable (e.g., utility functions), SOLID principles are evident.
+*   [ ] **Ruff/Linting:** Code adheres to strict formatting defined by Ruff configuration (if applicable to added/modified `.py` files).
+*   [ ] **Notebook Integrity:** For Jupyter Notebook changes, ensure cells execute sequentially without error. Remove all extraneous outputs/large data artifacts from committed notebooks.
+*   [ ] **Curriculum Preservation:** If curriculum documentation is modified, cross-reference against archived course descriptions (if available).
 
-### Testing (Pytest)
+### Testing & Verification (Pytest Focus)
 
-- [ ] Relevant unit/integration tests (if added/modified) pass (`pytest`).
-- [ ] Test coverage (if applicable) did not regress.
+*   [ ] **Local Verification:** All functional changes have been manually validated locally.
+*   [ ] **Unit Tests:** (If applicable to new modules) New functions/classes have corresponding Pytest fixtures/tests added.
 
----
+### Documentation & Metadata
 
-## 4. Self-Review / Approvals
+*   [ ] **README Update:** If project functionality changed, `README.md` has been updated.
+*   [ ] **AGENTS.md Alignment:** If architectural patterns were introduced, `AGENTS.md` reflects the updated tech stack (Python 3.10+, uv, Ruff, Pytest).
+*   [ ] **License Confirmation:** The contribution aligns with the `CC BY-NC` license terms.
 
-**Reviewer Checklist:**
+--- 
 
-- [ ] Have I reviewed the accompanying `AGENTS.md` to ensure my changes align with the defined system behavior?
-- [ ] Does the documentation (including this PR template itself) accurately reflect the changes?
-- [ ] Are there any potential security vulnerabilities introduced (especially related to data processing or notebook execution)?
+## 🧠 3. AGENT DIRECTIVES SUMMARY
 
-**Link to Proposed README Updates (if applicable):**
-`https://github.com/chirag127/CVND-Udacity-Computer-Vision-Nanodegree-Archive/blob/main/PROPOSED_README.md`
+*By submitting this PR, you confirm that the changes align with the core principles defined in `AGENTS.md`, specifically regarding leveraging Python 3.10+ tooling (uv/Ruff) for structure and leveraging modularity even within notebook-heavy projects.*
 
----
+**Automated CI/CD Link:** [CI Build Status](https://github.com/chirag127/CVND-Udacity-Computer-Vision-Nanodegree-Archive/actions/workflows/ci.yml)
 
-**Agent Directive Trace:** *[Agent ID/Signature of last automated check]*
+--- 
+
+## 📝 Contributor Notes
+
+*(Use this section to explain *why* you made the changes, what external resources you consulted, and any context the reviewer needs to know.)*
+
+**Changes Overview:**
+
+
+[Describe changes here]
+
+
+**Verification Steps Taken:**
+
+
+[Describe local testing/validation steps here]
